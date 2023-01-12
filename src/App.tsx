@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import { Box } from "./components";
+import Home from "./pages/home";
+import Kamdo from "./pages/kamdo";
+import NotFound from "./pages/not-found";
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <main className="h-screen w-full">
+            <Routes>
+                <Route index element={<Home />} />
+                <Route path="/s2wt-kamdo" element={<Kamdo />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+            <Box className="absolute bottom-4 right-0 left-0">
+                <p className="text-center text-gray-400 text-xs">
+                    Made with <span className="text-red-500">❤</span> by{" "}
+                    <a href="https://msar.me" target="_blank" rel="noreferrer">
+                        Saiful Alam
+                    </a>
+                </p>
+            </Box>
+        </main>
+    );
 }
 
-export default App
+export default App;
