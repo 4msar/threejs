@@ -8,27 +8,26 @@ name: Build and Deploy
             - main
 jobs:
     build-and-deploy:
+        if: endsWith(github.event.head_commit.message, '[deploy]')
         name: "Build and Deploy"
         runs-on: ubuntu-latest
-        run_if:
-            if: "endsWith(github.event.head_commit.message, '[deploy]')"
-            steps:
-                - name: "Checkout \U0001F6CE️"
-                  uses: actions/checkout@v3
-                - uses: actions/setup-node@v3
-                  with:
-                      node-version: "16"
-                      cache: npm
-                - name: "Install and Build \U0001F527"
-                  run: |
-                      npm install
-                      npm run build
-                      cp dist/index.html dist/404.html
-                  env:
-                      CI: false
-                      GENERATE_SOURCEMAP: false
-                - name: "Deploy \U0001F680"
-                  uses: JamesIves/github-pages-deploy-action@v4
-                  with:
-                      folder: dist
-                      branch: gh-pages
+        steps:
+            - name: "Checkout \U0001F6CE️"
+                uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+                with:
+                    node-version: "16"
+                    cache: npm
+            - name: "Install and Build \U0001F527"
+                run: |
+                    npm install
+                    npm run build
+                    cp dist/index.html dist/404.html
+                env:
+                    CI: false
+                    GENERATE_SOURCEMAP: false
+            - name: "Deploy \U0001F680"
+                uses: JamesIves/github-pages-deploy-action@v4
+                with:
+                    folder: dist
+                    branch: gh-pages
