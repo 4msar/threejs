@@ -2,6 +2,8 @@
 
 [![Build and Deploy](https://github.com/4msar/threejs/actions/workflows/deploy.yml/badge.svg)](https://github.com/4msar/threejs/actions/workflows/deploy.yml)
 
+[![pages-build-deployment](https://github.com/4msar/threejs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/4msar/threejs/actions/workflows/pages/pages-build-deployment)
+
 Live: [https://threejs.msar.me](https://threejs.msar.me)
 
 This is my practice project for ThreeJS
