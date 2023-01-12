@@ -7,9 +7,9 @@ name: Build and Deploy
     branches:
       - main
 jobs:
-  run_if:
-    if: 'endsWith(github.event.head_commit.message, ''[deploy]'')'
-    build-and-deploy:
+  build-and-deploy:
+    run_if:
+      if: 'endsWith(github.event.head_commit.message, ''[deploy]'')'
       runs-on: ubuntu-latest
       steps:
         - name: "Checkout \U0001F6CE️"
